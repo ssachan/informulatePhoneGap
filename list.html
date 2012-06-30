@@ -15,10 +15,26 @@
   </head>
   
   <body onload="init();">
-    <a id="test" href="list.html">Test List?</a>
+    <div id="output">
+        <script type="text/javascript">
+            console.log("Started");
+        </script>
+        <ul id="myList" data-role="listview" data-theme="g">
+        </ul>
+    </div>
     <script type="text/javascript">
-        $("#test").click(function() {
-            $.mobile.changePage( "list.html", { transition: "slideup"} );
+        console.log("Calling API");
+        $.ajax({
+            type: "GET",
+            url: "https://mybewell.stanford.edu/api/appointments/stress"
+        }).done(function(data) { 
+            //$('#output').html("Results: "+JSON.stringify(data));
+            console.log("Data Returned");
+            jQuery.each(data, function(i, val) {
+                $("#myList").append('<li><a href="#">'+val["name"]+'</a></li>');
+            });
+            $('#myList').listview('refresh');
+            console.log("Finished");
         });
     </script>
   </body>
