@@ -23,9 +23,14 @@
   <body onload="onBodyLoad();">
     <a id="test" href="list.html">Test List?</a>
     <script type="text/javascript">
-        $("#test").click(function() {
-            $.mobile.changePage( "list.html", { transition: "slideup"} );
-        });
+        function onDeviceReady()
+        {
+            // do your thing!
+            navigator.notification.alert("Cordova is working")
+            $("#test").click(function() {
+                $.mobile.changePage( "list.html", { transition: "slideup"} );
+            });
+        }
     </script>
   </body>
 </html>
