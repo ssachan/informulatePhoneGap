@@ -3,13 +3,12 @@
 <html>
   <head>
     <meta http-equiv="Content-type" name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">
-    <title></title>
-
+    <title>Informulate Phone Gap</title>
 	<link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
     <link rel="stylesheet" href="jquery.mobile.structure-1.1.0.min.css" />
     <link rel="stylesheet" href="jquery.mobile.theme-1.1.0.min.css" />
-	<script type="text/javascript" charset="utf-8" src="cordova-1.8.1.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova-1.9.0.js"></script>
     <script type="text/javascript" charset="utf-8" src="jquery-1.7.2.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="jquery.mobile-1.1.0.min.js"></script>
     <script type="text/javascript">
@@ -19,15 +18,21 @@
         }
     </script>
   </head>
-  
   <body onload="onBodyLoad();">
-    <a id="test" href="list.html">Test List?</a>
+	<div data-role="page">
+		<div data-role="header">
+			<h1>PhoneGap Demo</h1>
+		</div><!-- /header -->
+		<div data-role="content">	
+			<a id="appointments" href="list.html" data-role="button">Stress Appointments</a>
+		</div><!-- /content -->
+	</div><!-- /page -->
     <script type="text/javascript">
         function onDeviceReady()
         {
             // do your thing!
-            navigator.notification.alert("Cordova is working")
-            $("#test").click(function() {
+            navigator.notification.alert("Cordova is working");
+            $("#appointments").click(function() {
                 $.mobile.changePage( "list.html", { transition: "slideup"} );
             });
         }
